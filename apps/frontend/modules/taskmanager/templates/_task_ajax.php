@@ -1,0 +1,1 @@
+<li><input type="checkbox" id="task_<?php echo $id; ?>" /><?php echo $task->getName(); ?></li>

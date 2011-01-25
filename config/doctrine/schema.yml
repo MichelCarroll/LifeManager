@@ -1,0 +1,15 @@
+Tasks:
+  actAs:
+    Timestampable: ~
+  columns:
+    task_id:      { type: integer, notnull: true, primary: true, autoincrement: true }
+    name:         { type: string(255), notnull: true }
+    is_important: { type: boolean, notnull: true, default: false }
+    is_urgent:    { type: boolean, notnull: true, default: false }
+    time_done:    { type: timestamp, notnull: false, format: Y-m-d H:i:s }
+    due_date:    { type: date, notnull: false, format: d/m/Y }
+
+Principles:
+  columns:
+    principle_id: { type: integer, notnull: true, primary: true, autoincrement: true }
+    name:         { type: string(255), notnull: true }

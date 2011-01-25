@@ -1,0 +1,18 @@
+dev:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=lifemanager'
+      username: root
+      password: root
+      attributes:
+        tblname_format: lm_%s
+prod:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=lifemanager'
+      username: root
+      password: root
+      attributes:
+        tblname_format: lm_%s

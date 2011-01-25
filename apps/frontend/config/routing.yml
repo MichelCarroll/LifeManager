@@ -1,0 +1,51 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+#sfGuardAuth
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+
+view_tasks:
+  url: /taskmanager/list
+  param: { module: taskmanager, action: list }
+
+task_matrix:
+  url: /taskmanager
+  param: { module: taskmanager, action: index }
+
+add_task:
+  url: /taskmanager/add
+  param: { module: taskmanager, action: add }
+
+edit_task:
+  url: /taskmanager/edit/:id
+  param: { module: taskmanager, action: edit }
+
+delete_task:
+  url: /taskmanager/delete/:id
+  param: { module: taskmanager, action: delete }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
