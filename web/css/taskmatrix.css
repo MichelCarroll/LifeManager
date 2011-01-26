@@ -7,8 +7,17 @@ td {
 }
 
 td li {
+    clear: both;
+    display: block;
+    float: left;
     list-style-type: none;
-    margin:0 0 5px 0;
+    margin: 0 0 5px;
+}
+
+td li input {
+    border:none;
+    background:none;
+    color:#888;
 }
 
 td ul {
@@ -41,26 +50,19 @@ td.left_bottom_metric {
 
 .quadrant {
     position:relative;
-    width:100%;
-    height:100%;
+    vertical-align:top;
 
-    min-width:300px;
-    min-height:100px;
+    width:350px;
+    height:150px;
+
+    padding:20px;
 }
 
-.quad_indicator {
+/*IN ORDER TO TRIGGER CLICKS OUTSIDE OF THE LIST*/
+.empty_quadrant_area {
+    height:100%;
+    width:100%;
     display:block;
-    width:25px;
-    height:25px;
-    border:1px solid #000;
-    border-collapse: collapse;
-
-    font-weight:bold;
-    text-align:center;
-    vertical-align: center;
-    line-height:25px;
-
     position:absolute;
-    top:-1px;
-    right:-1px;
+    background:#222;
 }

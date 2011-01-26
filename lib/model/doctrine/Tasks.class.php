@@ -12,4 +12,20 @@
  */
 class Tasks extends BaseTasks
 {
+    public function getQuadrant() {
+        if($this->getIsImportant()) {
+            if($this->getIsUrgent()) {
+                return 1;
+            }
+            else {
+                return 2;
+            }
+        }
+        else {
+            if($this->getIsUrgent()) {
+                return 3;
+            }
+        }
+        return 4;
+    }
 }

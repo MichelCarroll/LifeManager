@@ -17,6 +17,10 @@ class TasksTable extends Doctrine_Table
         return Doctrine_Core::getTable('Tasks');
     }
 
+    public function getALlTasks() {
+        return $this->findAll();
+    }
+
     public function getAllTasksByQuad() {
         $tasks = array();
         $tasks['first'] = array();

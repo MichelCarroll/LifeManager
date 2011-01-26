@@ -1,6 +1,8 @@
 <?php
 
+use_javascript('taskmatrix');
 use_stylesheet('taskmatrix');
+
 $id_array = array(); ?>
 
 <table>
@@ -19,90 +21,40 @@ $id_array = array(); ?>
         <td class="no_borders left_top_metric">
             Important
         </td>
-        <td><!-- FIRST QUADRANT -->
+        <td  id="first_quadrant" class="quadrant"><!-- FIRST QUADRANT -->
 
-            <div class="quadrant">
-            <div class="quad_indicator">I</div>
+            <ul class="task_list"></ul>
 
-            <?php if(count($first_quad)) echo '<ul>'; ?>
-                <?php
-                foreach($first_quad as $task):
-                    $id = $task->getTaskId();
-                    $id_array[] = $id;
-                ?>
-                    <?php include_partial('task', array('task'=>$task, 'id'=>$id)); ?>
-                <?php endforeach; ?>
-            <?php if(count($first_quad)) echo '</ul>'; ?>
-
-            </div>
         </td>
-        <td><!-- SECOND QUADRANT -->
-            <div class="quadrant">
-            <div class="quad_indicator">II</div>
+        <td id="second_quadrant" class="quadrant"><!-- SECOND QUADRANT -->
 
-            <?php if(count($second_quad)) echo '<ul>'; ?>
-                <?php
-                foreach($second_quad as $task):
-                    $id = $task->getTaskId();
-                    $id_array[] = $id;
-                ?>
-                    <?php include_partial('task', array('task'=>$task, 'id'=>$id)); ?>
-                <?php endforeach; ?>
-            <?php if(count($second_quad)) echo '</ul>'; ?>
+           <ul class="task_list"></ul>
 
-            </div>
         </td>
     </tr>
     <tr>
         <td class="no_borders left_bottom_metric">
             Not Important
         </td>
-        <td><!-- THIRD QUADRANT -->
+        <td id="third_quadrant" class="quadrant"><!-- THIRD QUADRANT -->
 
-            <div class="quadrant">
-            <div class="quad_indicator">III</div>
-
-            <?php if(count($third_quad)) echo '<ul>'; ?>
-                <?php
-                foreach($third_quad as $task):
-                    $id = $task->getTaskId();
-                    $id_array[] = $id;
-                ?>
-                    <?php include_partial('task', array('task'=>$task, 'id'=>$id)); ?>
-                <?php endforeach; ?>
-            <?php if(count($third_quad)) echo '</ul>'; ?>
-
-            </div>
+            <ul class="task_list"></ul>
         </td>
-        <td><!-- FOURTH QUADRANT -->
+        <td id="fourth_quadrant" class="quadrant"><!-- FOURTH QUADRANT -->
 
-            <div class="quadrant">
-            <div class="quad_indicator">IV</div>
+            <ul class="task_list"></ul>
 
-            <?php if(count($fourth_quad)) echo '<ul>'; ?>
-                <?php
-                foreach($fourth_quad as $task):
-                    $id = $task->getTaskId();
-                    $id_array[] = $id;
-                ?>
-                    <?php include_partial('task', array('task'=>$task, 'id'=>$id)); ?>
-                <?php endforeach; ?>
-            <?php if(count($fourth_quad)) echo '</ul>'; ?>
-
-            </div>
         </td>
     </tr>
 </table>
 
-
-<?php echo link_to('Add Task', 'taskmanager/add', array('id'=>'add_button')); ?>
-        
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("a#add_button").fancybox();
-        <?php foreach($id_array as $id) { ?>
-        $("a#edit_button_<?php echo $id; ?>").fancybox();
-        $("a#delete_button_<?php echo $id; ?>").fancybox();
-        <?php } ?>
-    });
+    window.tasks = new Array();
+    <?php foreach($tasks as $task) { ?>
+    var new_task = new Object();
+    new_task.quadrant = <?php echo $task->getQuadrant(); ?>;
+    new_task.name = "<?php echo $task->getName(); ?>";
+    window.tasks.push(new_task);
+    <?php } ?>
+
 </script>

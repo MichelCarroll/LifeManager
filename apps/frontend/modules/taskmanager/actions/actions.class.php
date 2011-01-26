@@ -38,12 +38,7 @@ class taskmanagerActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $tasks = Doctrine::getTable('Tasks')->getAllTasksByQuad();
-
-    $this->first_quad = $tasks['first'];
-    $this->second_quad = $tasks['second'];
-    $this->third_quad = $tasks['third'];
-    $this->fourth_quad = $tasks['fourth'];
+    $this->tasks = Doctrine::getTable('Tasks')->getAllTasks();
   }
    /**
   * Inserts a new task to the list
@@ -76,6 +71,47 @@ class taskmanagerActions extends sfActions
             $this->redirect('taskmanager/index');
         }
     }
+  }
+
+  public function executeAjaxinsert(sfWebRequest $request) {
+      if($request->isXmlHttpRequest()) {
+
+          $task_id = 0;
+          if($request->hasParameter('task_id')){
+              $task_id = $request->getParameter('task_id');
+          }
+
+          $urgent = false;
+          if($request->getParameter('urgent') == 'true'){
+              $urgent = true;
+          }
+
+          $important = false;
+          if($request->getParameter('important') == 'true'){
+              $important = true;
+          }
+          
+          $task_name = $request->getParameter('name');
+
+          if(!$task_id)
+              $new_task = new Tasks();
+          else {
+              $new_task = TasksTable::getInstance()->findOneBy ('task_id', $task_id);
+              if(!$new_task) $new_task = new Tasks();
+          }
+
+          $new_task->setName($task_name);
+          $new_task->setIsUrgent($urgent);
+          $new_task->setIsImportant($important);
+          $new_task->save();
+
+          $return_array = array(
+             'task_id' => $new_task->getTaskId()
+          );
+
+          echo json_encode($return_array);
+          return true;
+      }
   }
 
   /**
