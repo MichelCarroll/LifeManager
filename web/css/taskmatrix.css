@@ -66,3 +66,7 @@ td.left_bottom_metric {
     position:absolute;
     background:#222;
 }
+
+.delete_button {
+    margin-left:10px;
+}

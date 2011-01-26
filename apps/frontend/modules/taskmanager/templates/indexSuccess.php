@@ -54,6 +54,7 @@ $id_array = array(); ?>
     var new_task = new Object();
     new_task.quadrant = <?php echo $task->getQuadrant(); ?>;
     new_task.name = "<?php echo $task->getName(); ?>";
+    new_task.task_id = "<?php echo $task->getTaskId(); ?>";
     window.tasks.push(new_task);
     <?php } ?>
 

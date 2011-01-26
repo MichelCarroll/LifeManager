@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     var task_array = window.tasks;
     for(var i = 0; i < task_array.length; i++) {
-        create_new_task(task_array[i].name, task_array[i].quadrant, true);
+        create_new_task(task_array[i].name, task_array[i].quadrant, task_array[i].task_id);
     }
 
 });
@@ -95,7 +95,7 @@ function register_task_item(task_item) {
 
 }
 
-function create_new_task(task_name, quadrant, bypass_ajax, task_id) {
+function create_new_task(task_name, quadrant, task_id) {
 
     var urgent = false;
     var important = false;
@@ -138,7 +138,12 @@ function create_new_task(task_name, quadrant, bypass_ajax, task_id) {
     new_task.attr('task_name', task_name);
     new_task.append('<strong>'+ task_name +'</strong>');
 
-    if(bypass_ajax) {
+    if(task_id) {
+
+        var del_link = $('<a href="/taskmanager/delete?id='+task_id+'" class="delete_button">Delete</a>');
+        del_link.fancybox();
+        new_task.append(del_link);
+
         $(quad_name + ' ul.task_list').append(new_task);
         register_task_item(new_task);
     }
@@ -150,8 +155,11 @@ function create_new_task(task_name, quadrant, bypass_ajax, task_id) {
             success: function(msg) {
 
                 var return_json = $.parseJSON(msg);
+                var del_link = $('<a href="/taskmanager/delete?id='+return_json.task_id+'" class="delete_button">Delete</a>');
+                del_link.fancybox();
 
                 new_task.attr('id', return_json.task_id);
+                new_task.append(del_link);
                 $(quad_name + ' ul.task_list').append(new_task);
                 register_task_item(new_task);
             }
