@@ -26,6 +26,10 @@ ajax_insert_task:
   url: /taskmanager/ajaxinsert/
   param: { module: taskmanager, action: ajaxinsert }
 
+ajax_sort_tasks:
+  url: /taskmanager/ajaxsort/
+  param: { module: taskmanager, action: ajaxsort }
+
 #sfGuardAuth
 sf_guard_signin:
   url:   /login

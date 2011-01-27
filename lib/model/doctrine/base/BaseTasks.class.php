@@ -11,6 +11,7 @@
  * @property boolean $is_urgent
  * @property timestamp $time_done
  * @property date $due_date
+ * @property integer $task_order
  * 
  * @method integer   getTaskId()       Returns the current record's "task_id" value
  * @method string    getName()         Returns the current record's "name" value
@@ -18,12 +19,14 @@
  * @method boolean   getIsUrgent()     Returns the current record's "is_urgent" value
  * @method timestamp getTimeDone()     Returns the current record's "time_done" value
  * @method date      getDueDate()      Returns the current record's "due_date" value
+ * @method integer   getTaskOrder()    Returns the current record's "task_order" value
  * @method Tasks     setTaskId()       Sets the current record's "task_id" value
  * @method Tasks     setName()         Sets the current record's "name" value
  * @method Tasks     setIsImportant()  Sets the current record's "is_important" value
  * @method Tasks     setIsUrgent()     Sets the current record's "is_urgent" value
  * @method Tasks     setTimeDone()     Sets the current record's "time_done" value
  * @method Tasks     setDueDate()      Sets the current record's "due_date" value
+ * @method Tasks     setTaskOrder()    Sets the current record's "task_order" value
  * 
  * @package    LifeManager
  * @subpackage model
@@ -64,6 +67,11 @@ abstract class BaseTasks extends sfDoctrineRecord
              'type' => 'date',
              'notnull' => false,
              'format' => 'd/m/Y',
+             ));
+        $this->hasColumn('task_order', 'integer', 4, array(
+             'type' => 'integer',
+             'notnull' => false,
+             'length' => 4,
              ));
     }
 

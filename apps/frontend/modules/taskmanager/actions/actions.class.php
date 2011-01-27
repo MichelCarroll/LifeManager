@@ -73,6 +73,34 @@ class taskmanagerActions extends sfActions
     }
   }
 
+
+  public function executeAjaxsort(sfWebRequest $request) {
+      if($request->isXmlHttpRequest()) {
+
+          $sort_list = $request->getParameter('sortlist');
+          $sort_list = explode(',', $sort_list);
+
+          $sort_position = array();
+          $i = 0;
+
+              var_dump($sort_list);
+
+          foreach($sort_list as $item) {
+              if($item)
+                $sort_position[$item] = ++$i;
+          }
+              var_dump($sort_position);
+
+          foreach($sort_position as $item_key => $item_pos) {
+              $item = TasksTable::getInstance()->find($item_key);
+              $item->setTaskOrder($item_pos);
+              $item->save();
+          }
+
+          return true;
+      }
+  }
+
   public function executeAjaxinsert(sfWebRequest $request) {
       if($request->isXmlHttpRequest()) {
 

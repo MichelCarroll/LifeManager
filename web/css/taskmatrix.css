@@ -23,6 +23,8 @@ td li input {
 td ul {
     margin:0 0 0 5px;
     padding:0px;
+    min-height:20px;
+    min-width:170px;
 }
 
 td.no_borders {

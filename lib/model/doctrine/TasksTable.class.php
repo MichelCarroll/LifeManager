@@ -18,7 +18,9 @@ class TasksTable extends Doctrine_Table
     }
 
     public function getALlTasks() {
-        return $this->findAll();
+        return $this->createQuery('all_tasks')
+                ->orderBy('task_order ASC, due_date DESC, created_at DESC')
+                ->execute();
     }
 
     public function getAllTasksByQuad() {
@@ -29,7 +31,7 @@ class TasksTable extends Doctrine_Table
         $tasks['fourth'] = array();
 
         $query = $this->createQuery('task_by_quad')
-                ->orderBy('due_date DESC, created_at DESC');
+                ->orderBy('task_order ASC, due_date DESC, created_at DESC');
         $task_results = $query->execute();
 
         foreach($task_results as $task) {

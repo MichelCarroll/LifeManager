@@ -21,6 +21,7 @@ abstract class BaseTasksForm extends BaseFormDoctrine
       'is_urgent'    => new sfWidgetFormInputCheckbox(),
       'time_done'    => new sfWidgetFormDateTime(),
       'due_date'     => new sfWidgetFormDate(),
+      'task_order'   => new sfWidgetFormInputText(),
       'created_at'   => new sfWidgetFormDateTime(),
       'updated_at'   => new sfWidgetFormDateTime(),
     ));
@@ -32,6 +33,7 @@ abstract class BaseTasksForm extends BaseFormDoctrine
       'is_urgent'    => new sfValidatorBoolean(array('required' => false)),
       'time_done'    => new sfValidatorDateTime(array('required' => false)),
       'due_date'     => new sfValidatorDate(array('required' => false)),
+      'task_order'   => new sfValidatorInteger(array('required' => false)),
       'created_at'   => new sfValidatorDateTime(),
       'updated_at'   => new sfValidatorDateTime(),
     ));

@@ -23,12 +23,12 @@ $id_array = array(); ?>
         </td>
         <td  id="first_quadrant" class="quadrant"><!-- FIRST QUADRANT -->
 
-            <ul class="task_list"></ul>
+            <ul class="task_list" id="first_quadrant_list"></ul>
 
         </td>
         <td id="second_quadrant" class="quadrant"><!-- SECOND QUADRANT -->
 
-           <ul class="task_list"></ul>
+           <ul class="task_list" id="second_quadrant_list"></ul>
 
         </td>
     </tr>
@@ -38,11 +38,11 @@ $id_array = array(); ?>
         </td>
         <td id="third_quadrant" class="quadrant"><!-- THIRD QUADRANT -->
 
-            <ul class="task_list"></ul>
+            <ul class="task_list" id="third_quadrant_list"></ul>
         </td>
         <td id="fourth_quadrant" class="quadrant"><!-- FOURTH QUADRANT -->
 
-            <ul class="task_list"></ul>
+            <ul class="task_list" id="fourth_quadrant_list"></ul>
 
         </td>
     </tr>

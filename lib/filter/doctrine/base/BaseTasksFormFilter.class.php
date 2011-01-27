@@ -18,6 +18,7 @@ abstract class BaseTasksFormFilter extends BaseFormFilterDoctrine
       'is_urgent'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'time_done'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'due_date'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'task_order'   => new sfWidgetFormFilterInput(),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
@@ -28,6 +29,7 @@ abstract class BaseTasksFormFilter extends BaseFormFilterDoctrine
       'is_urgent'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'time_done'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'due_date'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'task_order'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
@@ -55,6 +57,7 @@ abstract class BaseTasksFormFilter extends BaseFormFilterDoctrine
       'is_urgent'    => 'Boolean',
       'time_done'    => 'Date',
       'due_date'     => 'Date',
+      'task_order'   => 'Number',
       'created_at'   => 'Date',
       'updated_at'   => 'Date',
     );
