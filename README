@@ -2,6 +2,8 @@ Action List
 
 -Ability to set Date/Time to task urgency
 -Ability to set condition to task importance
--Email reminders
+-Email reminders, along with reason why tasks are important (the equivalent of nagging)
 -Task categories (work, personal)
 -Ability to drag tasks into a weekly planner
+-User registration (many users to one install)
+-Use of MITs (most important things), ability to set 3 per day, and a follow up to make sure they're completed
