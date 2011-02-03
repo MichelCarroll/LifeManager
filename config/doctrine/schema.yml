@@ -4,13 +4,44 @@ Tasks:
   columns:
     task_id:      { type: integer, notnull: true, primary: true, autoincrement: true }
     name:         { type: string(255), notnull: true }
-    is_important: { type: boolean, notnull: true, default: false }
-    is_urgent:    { type: boolean, notnull: true, default: false }
     time_done:    { type: timestamp, notnull: false, format: Y-m-d H:i:s }
-    due_date:    { type: date, notnull: false, format: d/m/Y }
-    task_order:    { type: integer(4), notnull: false }
+  relations:
+    UserTasks:
+      local: task_id
+      foreign: task_id
+      type: one
+      foreignType: one
 
-Principles:
+Users:
   columns:
-    principle_id: { type: integer, notnull: true, primary: true, autoincrement: true }
-    name:         { type: string(255), notnull: true }
+    user_id:      { type: integer, notnull: true, primary: true, autoincrement: true }
+    first_name:   { type: string(255), notnull: true }
+    last_name:    { type: string(255), notnull: true }
+    email:        { type: string(255), notnull: true }
+  relations:
+    UserTasks:
+      local: user_id
+      foreign: user_id
+      type: one
+      foreignType: one
+
+UserTasks:
+  actAs:
+    Timestampable: ~
+  columns:
+    user_id:       { type: integer, notnull: true, primary: true, autoincrement: false }
+    task_id:       { type: integer, notnull: true, primary: true, autoincrement: false }
+    is_important:  { type: boolean, notnull: true, default: false }
+    is_urgent:     { type: boolean, notnull: true, default: false }
+    task_order:    { type: integer(4), notnull: false }
+  relations:
+    Tasks:
+      local: task_id
+      foreign: task_id
+      type: one
+      foreignType: many
+    Users:
+      local: user_id
+      foreign: user_id
+      type: one
+      foreignType: many

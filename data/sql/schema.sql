@@ -1,5 +1,7 @@
 CREATE TABLE lm_principles (principle_id BIGINT AUTO_INCREMENT, name VARCHAR(255) NOT NULL, PRIMARY KEY(principle_id)) ENGINE = INNODB;
-CREATE TABLE lm_tasks (task_id BIGINT AUTO_INCREMENT, name VARCHAR(255) NOT NULL, is_important TINYINT(1) DEFAULT '0' NOT NULL, is_urgent TINYINT(1) DEFAULT '0' NOT NULL, time_done DATETIME, due_date DATE, task_order INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(task_id)) ENGINE = INNODB;
+CREATE TABLE lm_tasks (task_id BIGINT AUTO_INCREMENT, name VARCHAR(255) NOT NULL, time_done DATETIME, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(task_id)) ENGINE = INNODB;
+CREATE TABLE lm_user_tasks (user_id BIGINT, task_id BIGINT, is_important TINYINT(1) DEFAULT '0' NOT NULL, is_urgent TINYINT(1) DEFAULT '0' NOT NULL, task_order INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, task_id)) ENGINE = INNODB;
+CREATE TABLE lm_users (user_id BIGINT AUTO_INCREMENT, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, PRIMARY KEY(user_id)) ENGINE = INNODB;
 CREATE TABLE lm_sf_guard_forgot_password (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at DATETIME NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE lm_sf_guard_group (id BIGINT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE lm_sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(group_id, permission_id)) ENGINE = INNODB;
@@ -8,6 +10,8 @@ CREATE TABLE lm_sf_guard_remember_key (id BIGINT AUTO_INCREMENT, user_id BIGINT,
 CREATE TABLE lm_sf_guard_user (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255), last_name VARCHAR(255), email_address VARCHAR(255) NOT NULL UNIQUE, username VARCHAR(128) NOT NULL UNIQUE, algorithm VARCHAR(128) DEFAULT 'sha1' NOT NULL, salt VARCHAR(128), password VARCHAR(128), is_active TINYINT(1) DEFAULT '1', is_super_admin TINYINT(1) DEFAULT '0', last_login DATETIME, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX is_active_idx_idx (is_active), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE lm_sf_guard_user_group (user_id BIGINT, group_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, group_id)) ENGINE = INNODB;
 CREATE TABLE lm_sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
+ALTER TABLE lm_user_tasks ADD CONSTRAINT lm_user_tasks_user_id_lm_users_user_id FOREIGN KEY (user_id) REFERENCES lm_users(user_id);
+ALTER TABLE lm_user_tasks ADD CONSTRAINT lm_user_tasks_task_id_lm_tasks_task_id FOREIGN KEY (task_id) REFERENCES lm_tasks(task_id);
 ALTER TABLE lm_sf_guard_forgot_password ADD CONSTRAINT lm_sf_guard_forgot_password_user_id_lm_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES lm_sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE lm_sf_guard_group_permission ADD CONSTRAINT lpli FOREIGN KEY (permission_id) REFERENCES lm_sf_guard_permission(id) ON DELETE CASCADE;
 ALTER TABLE lm_sf_guard_group_permission ADD CONSTRAINT lm_sf_guard_group_permission_group_id_lm_sf_guard_group_id FOREIGN KEY (group_id) REFERENCES lm_sf_guard_group(id) ON DELETE CASCADE;
