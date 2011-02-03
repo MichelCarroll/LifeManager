@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"><![endif]-->
+
+	<title>Blueprint test pages</title>
+	<meta name="robots" content="index, follow">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="../css/src/html5reset-1.5.1.css">
+	<link rel="stylesheet" href="css/html5boilerplate/forms.css">
+	<link rel="stylesheet" href="css/html5boilerplate/grid.css">
+	<link rel="stylesheet" href="css/html5boilerplate/blueprint-html5boilerplate-style.css">
+
+	<!--[if lt IE 8]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+	<!--  iPhone/iPad/Opera Mobile Viewport Fix:
+	device-width : Make sure webpages occupy full width of the screen in its current orientation (portrait or landscape)
+	initial-scale = 1.0 retains dimensions of the page instead of zooming out if page height is larger than device height
+	maximum-scale = 1.0 retains dimensions of the page instead of zooming in if page width is smaller than device width
+
+	More at: http://j.mp/mobileviewport
+	http://davidbcalhoun.com/2010/viewport-metatag 	 -->
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="">
+	<link rel="apple-touch-icon" href="">
+
+
+    <style type="text/css" media="screen">
+      p, table, hr, .box { margin-bottom:25px; }
+      .box p { margin-bottom:10px; }
+    </style>
+
+
+
+  <!-- For the less-enabled mobile browsers like Opera Mini -->
+	<link rel="stylesheet" media="handheld" href="../css/handheld.css">
+
+
+  <!-- All JavaScript at the bottom, except for.. -->
+
+  <script>
+  // http://paulirish.com/2009/avoiding-the-fouc-v3/ && http://remysharp.com/2009/01/07/html5-enabling-script
+  // alternatively using Moderizr does both of these.
+  (function(B,C){B[C]=B[C].replace(/\bno-js\b/,'js');if(!/*@cc_on!@*/0)return;var e = "abbr article aside audio canvas command datalist details figure figcaption footer header hgroup mark meter nav output progress section summary time video".split(' '),i=e.length;while(i--){document.createElement(e[i])}})(document.documentElement,'className');
+  </script>
+
+</head>
+
+<!-- http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if gt IE 9]>  <body>             <![endif]-->
+<!--[if !IE]><!--> <body>         <!--<![endif]-->
+
+    <div class="container">
+      <h1>Blueprint + HTML5boilerplate -  test pages</h1>
+      <hr>
+
+      <p>Welcome to the Blueprint test pages. <b>I forked the original blueprint files and combined them with the HTML5boilerplate. This is Version is only a draft. Please add your toughts. Thx.</b> The HTML files below tests most HTML elements, and especially classes provided
+      by&nbsp;Blueprint.</p>
+
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th class="span-6">Test page</th>
+          <th class="span-8">Main files tested</th>
+          <th class="span-10">Description</th>
+        </tr>
+        <tr>
+          <td><a href="parts/fork/sample.html">Sample page</a></td>
+          <td>
+            <a href="css/html5boilerplate/grid.css">grid.css</a>,
+            <a href="css/html5boilerplate/blueprint-html5boilerplate-style.css">blueprint-html5boilerplate-style.css</a>
+          </td>
+          <td>A simple sample page, with common elements.</td>
+        </tr>
+        <tr class="even">
+          <td><a href="parts/fork/grid.html">Grid</a></td>
+          <td>
+            <a href="css/html5boilerplate/grid.css">grid.css</a>
+          </td>
+          <td>Tests classes provided by grid.css.</td>
+        </tr>
+        <tr>
+          <td><a href="parts/elements.html">Typography Style moved</a></td>
+          <td>
+            <a href="css/html5boilerplate/blueprint-html5boilerplate-style.css">blueprint-html5boilerplate-style.css</a>
+          </td>
+          <td>Tests HTML elements which gets set in typography.css.</td>
+        </tr>
+        <tr class="even">
+          <td><a href="parts/fork/forms.html">Forms</a></td>
+          <td>
+            <a href="css/html5boilerplate/forms.css">forms.css</a>
+          </td>
+          <td>Tests classes and default look provided by forms.css.</td>
+        </tr>
+      </table>
+
+      <p><em><strong>Note about the compressed versions:</strong></em>
+      These test files utilize the compressed files. In other words, if you change any of the source files,
+      you'll have to re-compress them with the ruby script in the scripts folder to see any&nbsp;changes.</p>
+
+      <div class="box">
+        <p>For more information and help, try these resources:</p>
+        <ul class="bottom">
+          <li><a href="http://blueprintcss.org">The Blueprint home page</a></li>
+          <li><a href="http://github.com/joshuaclayton/blueprint-css/wikis/home">The Blueprint Wiki</a></li>
+          <li><a href="http://groups.google.com/group/blueprintcss">The Blueprint mailing list</a></li>
+          <li><a href="http://christianmontoya.com">The blog for news about Blueprint</a></li>
+        </ul>
+      </div>
+
+      <p>validator badge</p>
+
+    </div>
+
+
+  <!-- JavaScript -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/script.js"></script>
+
+  <!--[if lt IE 7 ]>
+    <script src="../js/dd_belatedpng.js"></script>
+  <![endif]-->
+
+
+  <!-- yui profiler and profileviewer - remove for production -->
+  <script src="../js/profiling/yahoo-profiling.min.js"></script>
+  <script src="../js/profiling/config.js"></script>
+  <!-- end profiling code -->
+
+
+</body>
+</html>

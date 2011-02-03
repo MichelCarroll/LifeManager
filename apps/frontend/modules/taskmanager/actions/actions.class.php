@@ -16,6 +16,13 @@ class taskmanagerActions extends sfActions
       //ADD GLOBAL BEHAVIOURS HERE
   }
 
+  public function executeIntegrate(sfWebRequest $request)
+  {
+      
+  }
+
+
+
  /**
   * Lists all tasks in the database
   *

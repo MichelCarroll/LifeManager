@@ -1,0 +1,164 @@
+Feb 02 21:56:51 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Feb 02 21:56:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:56:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:56:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:56:51 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Feb 02 21:56:51 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Feb 02 21:56:51 symfony [info] {sfPHPView} Decorate content with "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Feb 02 21:56:51 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Feb 02 21:56:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 02 21:56:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:56:51 symfony [info] {sfWebDebugLogger} Configuration 107.31 ms (10)
+Feb 02 21:56:51 symfony [info] {sfWebDebugLogger} Factories 119.20 ms (1)
+Feb 02 21:56:51 symfony [info] {sfWebDebugLogger} Action "default/index" 0.14 ms (1)
+Feb 02 21:56:51 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 12.18 ms (1)
+Feb 02 21:56:51 symfony [info] {sfWebResponse} Send content (30682 o)
+Feb 02 21:56:57 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/index with parameters array (  'module' => 'taskmanager',  'action' => 'index',)
+Feb 02 21:56:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:56:57 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:56:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:56:57 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIndex()"
+Feb 02 21:56:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 02 21:56:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT l.task_id AS l__task_id, l.name AS l__name, l.time_done AS l__time_done, l.created_at AS l__created_at, l.updated_at AS l__updated_at FROM lm_tasks l ORDER BY task_order ASC, due_date DESC, l.created_at DESC - ()
+Feb 02 21:56:57 symfony [err] {Doctrine_Connection_Mysql_Exception} SQLSTATE[42S22]: Column not found: 1054 Unknown column 'task_order' in 'order clause'. Failing Query: "SELECT l.task_id AS l__task_id, l.name AS l__name, l.time_done AS l__time_done, l.created_at AS l__created_at, l.updated_at AS l__updated_at FROM lm_tasks l ORDER BY task_order ASC, due_date DESC, l.created_at DESC"
+Feb 02 21:56:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 02 21:56:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:56:57 symfony [info] {sfWebDebugLogger} Configuration 14.47 ms (9)
+Feb 02 21:56:57 symfony [info] {sfWebDebugLogger} Factories 21.56 ms (1)
+Feb 02 21:56:57 symfony [info] {sfWebDebugLogger} Action "taskmanager/index" 66.40 ms (1)
+Feb 02 21:56:57 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (1)
+Feb 02 21:57:57 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /taskmanager with parameters array (  'module' => 'taskmanager',  'action' => 'index',)
+Feb 02 21:57:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:57:57 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:57:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:57:57 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIndex()"
+Feb 02 21:57:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 02 21:57:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT l.task_id AS l__task_id, l.name AS l__name, l.time_done AS l__time_done, l.created_at AS l__created_at, l.updated_at AS l__updated_at FROM lm_tasks l ORDER BY task_order ASC, due_date DESC, l.created_at DESC - ()
+Feb 02 21:57:57 symfony [err] {Doctrine_Connection_Mysql_Exception} SQLSTATE[42S22]: Column not found: 1054 Unknown column 'task_order' in 'order clause'. Failing Query: "SELECT l.task_id AS l__task_id, l.name AS l__name, l.time_done AS l__time_done, l.created_at AS l__created_at, l.updated_at AS l__updated_at FROM lm_tasks l ORDER BY task_order ASC, due_date DESC, l.created_at DESC"
+Feb 02 21:57:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 02 21:57:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:57:57 symfony [info] {sfWebDebugLogger} Configuration 1.56 ms (8)
+Feb 02 21:57:57 symfony [info] {sfWebDebugLogger} Factories 25.71 ms (1)
+Feb 02 21:57:57 symfony [info] {sfWebDebugLogger} Action "taskmanager/index" 71.97 ms (1)
+Feb 02 21:57:57 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (1)
+Feb 02 21:58:58 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/integrate with parameters array (  'module' => 'taskmanager',  'action' => 'integrate',)
+Feb 02 21:58:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:58:58 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:58:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:58:58 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIntegrate()"
+Feb 02 21:58:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 02 21:58:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:59:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/integrate with parameters array (  'module' => 'taskmanager',  'action' => 'integrate',)
+Feb 02 21:59:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:59:31 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:59:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:59:31 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIntegrate()"
+Feb 02 21:59:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 02 21:59:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:59:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/integrate with parameters array (  'module' => 'taskmanager',  'action' => 'integrate',)
+Feb 02 21:59:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 21:59:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 21:59:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 21:59:40 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIntegrate()"
+Feb 02 21:59:40 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/modules/taskmanager/templates/integrateSuccess.php"
+Feb 02 21:59:40 symfony [info] {sfPHPView} Decorate content with "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/templates/layout.php"
+Feb 02 21:59:40 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/templates/layout.php"
+Feb 02 21:59:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 02 21:59:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 21:59:40 symfony [info] {sfWebDebugLogger} Configuration 10.61 ms (10)
+Feb 02 21:59:40 symfony [info] {sfWebDebugLogger} Factories 35.18 ms (1)
+Feb 02 21:59:40 symfony [info] {sfWebDebugLogger} Action "taskmanager/integrate" 0.15 ms (1)
+Feb 02 21:59:40 symfony [info] {sfWebDebugLogger} View "Success" for "taskmanager/integrate" 17.89 ms (1)
+Feb 02 21:59:40 symfony [info] {sfWebResponse} Send content (29655 o)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/integrate with parameters array (  'module' => 'taskmanager',  'action' => 'integrate',)
+Feb 02 22:04:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 02 22:04:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 02 22:04:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 02 22:04:55 symfony [info] {taskmanagerActions} Call "taskmanagerActions->executeIntegrate()"
+Feb 02 22:04:55 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/modules/taskmanager/templates/integrateSuccess.php"
+Feb 02 22:04:55 symfony [info] {sfPHPView} Decorate content with "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/templates/layout.php"
+Feb 02 22:04:55 symfony [info] {sfPHPView} Render "/home/renoirb/NetBeansProjects/devlabmtl/LifeManager/apps/frontend/templates/layout.php"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 1.73 ms (9)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 21.53 ms (1)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Action "taskmanager/integrate" 0.14 ms (1)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} View "Success" for "taskmanager/integrate" 7.08 ms (1)
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send content (31733 o)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/css/style.css with parameters array (  'module' => 'taskmanager',  'action' => 'css',  'style.css' => true,)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/css" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/css" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 23.69 ms (1)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/plugins.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'plugins.js' => true,)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/modernizr-1.5.min.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'modernizr-1.5.min.js' => true,)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/profiling/yahoo-profiling.min.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'profiling' => 'yahoo-profiling.min.js',)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/script.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'script.js' => true,)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/css/handheld.css with parameters array (  'module' => 'taskmanager',  'action' => 'css',  'handheld.css' => true,)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 0.98 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 69.41 ms (1)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/profiling/config.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'profiling' => 'config.js',)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 138.05 ms (1)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 1.15 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 185.47 ms (1)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 0.95 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 244.08 ms (1)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/css" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/css" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 0.99 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 309.32 ms (1)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 1.97 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 299.70 ms (1)
+Feb 02 22:04:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/plugins.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'plugins.js' => true,)
+Feb 02 22:04:55 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:55 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Configuration 1.01 ms (5)
+Feb 02 22:04:55 symfony [info] {sfWebDebugLogger} Factories 25.53 ms (1)
+Feb 02 22:04:56 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/script.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'script.js' => true,)
+Feb 02 22:04:56 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:56 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Configuration 1.06 ms (5)
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Factories 21.36 ms (1)
+Feb 02 22:04:56 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/profiling/yahoo-profiling.min.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'profiling' => 'yahoo-profiling.min.js',)
+Feb 02 22:04:56 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:56 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (5)
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Factories 21.29 ms (1)
+Feb 02 22:04:56 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /taskmanager/js/profiling/config.js with parameters array (  'module' => 'taskmanager',  'action' => 'js',  'profiling' => 'config.js',)
+Feb 02 22:04:56 symfony [info] {sfFrontWebController} Action "taskmanager/js" does not exist
+Feb 02 22:04:56 symfony [err] {sfError404Exception} Action "taskmanager/js" does not exist.
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 02 22:04:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Configuration 0.92 ms (5)
+Feb 02 22:04:56 symfony [info] {sfWebDebugLogger} Factories 22.56 ms (1)

@@ -1,4 +1,11 @@
-Action List
+# Symfony deploy
+mkdir -p cache/ log/
+./symfony project:permissions
+./symfony doctrine:build --all --and-load
+
+
+
+# Action List
 
 -Ability to set Date/Time to task urgency
 -Ability to set condition to task importance
