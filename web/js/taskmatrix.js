@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
+    //SET ALL TASKS LISTS AS SORTABLE, AND INTEREXCHANGABLE
     $('.task_list').sortable({ 
-        connectWith: '.task_list',
+        connectWith: '.task_list', //CONNECT WITH OTHER LISTS
         receive: function(event, ui) {
             change_quad($(ui.item))
         },
@@ -36,7 +37,8 @@ $(document).ready(function() {
         }
     });
 
-    var task_array = window.tasks;
+    var task_array = window.tasks; //GET GLOBAL TASK ARRAY
+    //                                 (set in taskmanager/indexSuccess.php)
     for(var i = 0; i < task_array.length; i++) {
         create_new_task(task_array[i].name, task_array[i].quadrant, task_array[i].task_id, true);
     }
@@ -48,8 +50,6 @@ function register_task_item(task_item) {
     $(task_item).dblclick(function(handle) {
         update_task(task_item);
     });
-
-    //$(task_item).draggable({ connectToSortable: '.quadrant ul' });
 
 }
 
@@ -100,8 +100,6 @@ function save_new_task(input_box) {
     var saved_value = $.trim($(input_box).val());
     
     if((saved_value) != "") {
-
-        //TODO: AJAX SAVE TO DATABASE
 
         var task_id = 0;
         if($(list_item).attr('id')) {
