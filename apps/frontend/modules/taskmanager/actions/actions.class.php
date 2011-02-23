@@ -121,17 +121,36 @@ class taskmanagerActions extends sfActions
           
           $task_name = $request->getParameter('name');
 
-          if(!$task_id)
+          if(!$task_id) {
               $new_task = new Tasks();
+              $new_user_task = new UserTasks();
+          }
           else {
               $new_task = TasksTable::getInstance()->findOneBy ('task_id', $task_id);
-              if(!$new_task) $new_task = new Tasks();
+              if(!$new_task) {
+                  $new_task = new Tasks();
+                  $new_user_task = new UserTasks();
+              }
+              else {
+                  $new_user_task = $new_task->getUserTasks();
+              }
+
           }
 
           $new_task->setName($task_name);
-          $new_task->setIsUrgent($urgent);
-          $new_task->setIsImportant($important);
           $new_task->save();
+
+          $session = sfContext::getInstance()->getUser();
+          if ($session instanceof sfGuardSecurityUser)
+          {
+            $connected_user_id = $session->getGuardUser()->getId();
+            $new_user_task->setUserId($connected_user_id);
+          }
+
+          $new_user_task->setIsUrgent($urgent);
+          $new_user_task->setIsImportant($important);
+          $new_user_task->setTaskId($new_task->getTaskId());
+          $new_user_task->save();
 
           $return_array = array(
              'task_id' => $new_task->getTaskId()

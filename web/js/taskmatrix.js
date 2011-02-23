@@ -38,7 +38,7 @@ $(document).ready(function() {
     });
 
     var task_array = window.tasks; //GET GLOBAL TASK ARRAY
-    //                                 (set in taskmanager/indexSuccess.php)
+    
     for(var i = 0; i < task_array.length; i++) {
         create_new_task(task_array[i].name, task_array[i].quadrant, task_array[i].task_id, true);
     }
@@ -128,7 +128,7 @@ function update_list_order(id_array) {
 
     $.ajax({
         type: 'POST',
-        url: '/taskmanager/ajaxsort/',
+        url: 'ajaxsort',
         data: 'sortlist=' + id_array
     });
 }
@@ -179,7 +179,7 @@ function create_new_task(task_name, quadrant, task_id, skip_ajax, skip_add) {
     }
 
     if(skip_ajax) {
-        var del_link = $('<a href="/taskmanager/delete?id='+task_id+'" class="delete_button">Delete</a>');
+        var del_link = $('<a href="delete?id='+task_id+'" class="delete_button">Delete</a>');
         del_link.fancybox();
 
         if(!skip_add) {
@@ -196,13 +196,13 @@ function create_new_task(task_name, quadrant, task_id, skip_ajax, skip_add) {
 
         $.ajax({
             type: 'POST',
-            url: '/taskmanager/ajaxinsert/',
+            url: 'ajaxinsert',
             data: 'urgent=' + urgent + "&important=" + important + "&name=" + task_name + "&task_id=" + task_id,
             success: function(msg) {
 
                 if(!skip_add) {
                     var return_json = $.parseJSON(msg);
-                    var del_link = $('<a href="/taskmanager/delete?id='+return_json.task_id+'" class="delete_button">Delete</a>');
+                    var del_link = $('<a href="delete?id='+return_json.task_id+'" class="delete_button">Delete</a>');
                     del_link.fancybox();
 
                     new_task.attr('id', return_json.task_id);

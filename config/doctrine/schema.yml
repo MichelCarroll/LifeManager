@@ -4,24 +4,13 @@ Tasks:
   columns:
     task_id:      { type: integer, notnull: true, primary: true, autoincrement: true }
     name:         { type: string(255), notnull: true }
+    due_date:    { type: timestamp, notnull: false, format: Y-m-d H:i:s }
     time_done:    { type: timestamp, notnull: false, format: Y-m-d H:i:s }
+    task_order:    { type: integer, notnull: true }
   relations:
     UserTasks:
       local: task_id
       foreign: task_id
-      type: one
-      foreignType: one
-
-Users:
-  columns:
-    user_id:      { type: integer, notnull: true, primary: true, autoincrement: true }
-    first_name:   { type: string(255), notnull: true }
-    last_name:    { type: string(255), notnull: true }
-    email:        { type: string(255), notnull: true }
-  relations:
-    UserTasks:
-      local: user_id
-      foreign: user_id
       type: one
       foreignType: one
 
@@ -40,8 +29,8 @@ UserTasks:
       foreign: task_id
       type: one
       foreignType: many
-    Users:
+    sfGuardUser:
       local: user_id
-      foreign: user_id
+      foreign: id
       type: one
       foreignType: many

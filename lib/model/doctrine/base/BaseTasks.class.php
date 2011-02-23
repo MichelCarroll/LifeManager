@@ -7,26 +7,23 @@
  * 
  * @property integer $task_id
  * @property string $name
- * @property boolean $is_important
- * @property boolean $is_urgent
+ * @property timestamp $due_date
  * @property timestamp $time_done
- * @property date $due_date
  * @property integer $task_order
+ * @property UserTasks $UserTasks
  * 
- * @method integer   getTaskId()       Returns the current record's "task_id" value
- * @method string    getName()         Returns the current record's "name" value
- * @method boolean   getIsImportant()  Returns the current record's "is_important" value
- * @method boolean   getIsUrgent()     Returns the current record's "is_urgent" value
- * @method timestamp getTimeDone()     Returns the current record's "time_done" value
- * @method date      getDueDate()      Returns the current record's "due_date" value
- * @method integer   getTaskOrder()    Returns the current record's "task_order" value
- * @method Tasks     setTaskId()       Sets the current record's "task_id" value
- * @method Tasks     setName()         Sets the current record's "name" value
- * @method Tasks     setIsImportant()  Sets the current record's "is_important" value
- * @method Tasks     setIsUrgent()     Sets the current record's "is_urgent" value
- * @method Tasks     setTimeDone()     Sets the current record's "time_done" value
- * @method Tasks     setDueDate()      Sets the current record's "due_date" value
- * @method Tasks     setTaskOrder()    Sets the current record's "task_order" value
+ * @method integer   getTaskId()     Returns the current record's "task_id" value
+ * @method string    getName()       Returns the current record's "name" value
+ * @method timestamp getDueDate()    Returns the current record's "due_date" value
+ * @method timestamp getTimeDone()   Returns the current record's "time_done" value
+ * @method integer   getTaskOrder()  Returns the current record's "task_order" value
+ * @method UserTasks getUserTasks()  Returns the current record's "UserTasks" value
+ * @method Tasks     setTaskId()     Sets the current record's "task_id" value
+ * @method Tasks     setName()       Sets the current record's "name" value
+ * @method Tasks     setDueDate()    Sets the current record's "due_date" value
+ * @method Tasks     setTimeDone()   Sets the current record's "time_done" value
+ * @method Tasks     setTaskOrder()  Sets the current record's "task_order" value
+ * @method Tasks     setUserTasks()  Sets the current record's "UserTasks" value
  * 
  * @package    LifeManager
  * @subpackage model
@@ -48,36 +45,29 @@ abstract class BaseTasks extends sfDoctrineRecord
              'notnull' => true,
              'length' => 255,
              ));
-        $this->hasColumn('is_important', 'boolean', null, array(
-             'type' => 'boolean',
-             'notnull' => true,
-             'default' => false,
-             ));
-        $this->hasColumn('is_urgent', 'boolean', null, array(
-             'type' => 'boolean',
-             'notnull' => true,
-             'default' => false,
+        $this->hasColumn('due_date', 'timestamp', null, array(
+             'type' => 'timestamp',
+             'notnull' => false,
+             'format' => 'Y-m-d H:i:s',
              ));
         $this->hasColumn('time_done', 'timestamp', null, array(
              'type' => 'timestamp',
              'notnull' => false,
              'format' => 'Y-m-d H:i:s',
              ));
-        $this->hasColumn('due_date', 'date', null, array(
-             'type' => 'date',
-             'notnull' => false,
-             'format' => 'd/m/Y',
-             ));
-        $this->hasColumn('task_order', 'integer', 4, array(
+        $this->hasColumn('task_order', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => false,
-             'length' => 4,
+             'notnull' => true,
              ));
     }
 
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('UserTasks', array(
+             'local' => 'task_id',
+             'foreign' => 'task_id'));
+
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);
     }

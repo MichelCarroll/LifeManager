@@ -23,11 +23,11 @@ delete_task:
   param: { module: taskmanager, action: delete }
 
 ajax_insert_task:
-  url: /taskmanager/ajaxinsert/
+  url: /taskmanager/ajaxinsert
   param: { module: taskmanager, action: ajaxinsert }
 
 ajax_sort_tasks:
-  url: /taskmanager/ajaxsort/
+  url: /taskmanager/ajaxsort
   param: { module: taskmanager, action: ajaxsort }
 
 #sfGuardAuth
@@ -48,12 +48,3 @@ sf_guard_password:
 homepage:
   url:   /
   param: { module: default, action: index }
-
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
